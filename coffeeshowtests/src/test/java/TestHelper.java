@@ -22,7 +22,12 @@ public class TestHelper {
     }
 
     public void clickButtonById(String id){
-        WebElement buttonEdit = driver.findElement(By.id(id));
+        var buttonEdit = driver.findElement(By.id(id));
+        buttonEdit.click();
+    }
+
+    public void clickButtonByClassName(String className){
+        var buttonEdit = driver.findElement(By.className(className));
         buttonEdit.click();
     }
 
@@ -32,5 +37,10 @@ public class TestHelper {
 
     public WebElement getWebElementByClass(String className){
         return driver.findElement(By.className(className));
+    }
+
+    public void fillInputElementById(String id, String content){
+        var webElement = driver.findElement(By.id(id));
+        webElement.sendKeys(content);
     }
 }
