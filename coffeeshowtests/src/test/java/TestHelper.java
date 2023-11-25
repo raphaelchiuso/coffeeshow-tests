@@ -4,6 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
 
 public class TestHelper {
 
@@ -37,6 +41,15 @@ public class TestHelper {
 
     public WebElement getWebElementByClass(String className){
         return driver.findElement(By.className(className));
+    }
+
+    public void clickWebElementByInnerText(String innerText){
+        var webElement = driver.findElement(By.xpath("//p[text()='"+innerText+"']"));
+        webElement.click();
+    }
+
+    public WebDriverWait createWebDriverWaitByDuration(long duration){
+        return new WebDriverWait(driver, Duration.ofMillis(duration));
     }
 
     public void fillInputElementById(String id, String content){
