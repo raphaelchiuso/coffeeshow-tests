@@ -11,6 +11,8 @@ public class EditTests {
     private final String editItemButtonId = "update";
     private final String editItemModalId = "chakra-modal-:R1qpf6:";
     private final String editItemMenuModalClassName = "chakra-modal__content";
+    private final String inputFieldName = "name";
+    private final String submitEditButtonClassName = "chakra-button";
     private final TestHelper testHelper = new TestHelper();
 
     @BeforeEach
@@ -38,5 +40,21 @@ public class EditTests {
         testHelper.clickButtonByClassName("css-szjio1");
         testHelper.waitMilliseconds(1000);
         assertThat(testHelper.getWebElementByClass(editItemMenuModalClassName).isDisplayed()).isTrue();
+    }
+
+    @Test
+    @DisplayName("Should save an edit to Name Input.")
+    void shouldSaveAnEditionOnNameInputField(){
+        var fakeString = testHelper.createFakerInstance().number().digits(6);
+        testHelper.waitMilliseconds(1000);
+        testHelper.clickButtonById(editItemButtonId);
+        testHelper.waitMilliseconds(1000);
+        testHelper.clickButtonByClassName("css-szjio1");
+        testHelper.waitMilliseconds(1000);
+        testHelper.fillInputElementByName(inputFieldName, fakeString);
+        testHelper.waitMilliseconds(1000);
+        testHelper.clickButtonByClassName(submitEditButtonClassName);
+        testHelper.waitMilliseconds(1000);
+        assertThat(testHelper.getWebElementByInnerText("td", fakeString).isDisplayed()).isTrue();
     }
 }
