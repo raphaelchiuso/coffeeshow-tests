@@ -62,4 +62,9 @@ public class TestHelper {
         var webElement = driver.findElement(By.id(id));
         webElement.sendKeys(content);
     }
+
+    public void fillInputElementByName(String name, String content){
+        var webElement = driver.findElement(By.name(name));
+        webElement.sendKeys(content);
+    }
 }
