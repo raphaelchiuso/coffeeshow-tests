@@ -22,13 +22,13 @@ public class TestHelper {
     }
 
     public void clickButtonById(String id){
-        var buttonEdit = driver.findElement(By.id(id));
-        buttonEdit.click();
+        var button = driver.findElement(By.id(id));
+        button.click();
     }
 
     public void clickButtonByClassName(String className){
-        var buttonEdit = driver.findElement(By.className(className));
-        buttonEdit.click();
+        var button = driver.findElement(By.className(className));
+        button.click();
     }
 
     public WebElement getWebElementById(String id){
