@@ -68,6 +68,13 @@ public class TestHelper {
 
     public void fillInputElementByName(String name, String content){
         var webElement = driver.findElement(By.name(name));
+        waitMilliseconds(500);
+        new Actions(driver).keyDown(webElement, Keys.CONTROL).sendKeys("a").keyUp(webElement, Keys.CONTROL).perform();
+        waitMilliseconds(500);
+        new Actions(driver).sendKeys(Keys.BACK_SPACE).perform();
+        waitMilliseconds(500);
+        webElement.sendKeys("\b");
+        waitMilliseconds(500);
         webElement.sendKeys(content);
     }
 
