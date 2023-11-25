@@ -1,3 +1,4 @@
+import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -66,5 +67,9 @@ public class TestHelper {
     public void fillInputElementByName(String name, String content){
         var webElement = driver.findElement(By.name(name));
         webElement.sendKeys(content);
+    }
+
+    public Faker createFakerInstance(){
+        return new Faker();
     }
 }
