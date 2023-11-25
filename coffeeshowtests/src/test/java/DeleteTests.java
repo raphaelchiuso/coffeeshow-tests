@@ -33,11 +33,11 @@ public class DeleteTests {
     @Test
     @DisplayName("Should open delete item confirmation modal.")
     void shouldOpenEditMenuOnProductEditItemClick(){
-        var webDriverWait = testHelper.createWebDriverWaitByDuration(500);
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("css-13t1uiu")));
+        testHelper.waitMilliseconds(1000);
         testHelper.clickButtonById(deleteItemButtonId);
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("css-1mj7xoy")));
+        testHelper.waitMilliseconds(1000);
         testHelper.clickButtonByClassName("css-1mj7xoy");
+        testHelper.waitMilliseconds(1000);
         assertThat(testHelper.getWebElementByClass(deleteItemConfirmationModalClassName).isDisplayed()).isTrue();
     }
 }

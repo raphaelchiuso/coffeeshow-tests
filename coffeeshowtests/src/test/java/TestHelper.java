@@ -19,9 +19,11 @@ public class TestHelper {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.get("https://coffee-show.vercel.app/");
+        waitMilliseconds(1000);
     }
 
     public void tearDown() {
+        waitMilliseconds(1000);
         driver.quit();
     }
 
@@ -48,8 +50,12 @@ public class TestHelper {
         webElement.click();
     }
 
-    public WebDriverWait createWebDriverWaitByDuration(long duration){
-        return new WebDriverWait(driver, Duration.ofMillis(duration));
+    public void waitMilliseconds(long duration){
+        try {
+            Thread.sleep(duration);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void fillInputElementById(String id, String content){
