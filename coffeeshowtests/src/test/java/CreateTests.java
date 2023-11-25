@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateTests {
     private final String addItemButtonId = "create";
+    private final String createItemButtonClassName = "chakra-button";
     private final String addItemModalId = "chakra-modal-:R1qpf6:";
     private final TestHelper testHelper = new TestHelper();
 
@@ -31,5 +32,13 @@ public class CreateTests {
     void ShouldOpenAddItemModalOnCreateButtonClick(){
         testHelper.clickButtonById(addItemButtonId);
         assertThat(testHelper.getWebElementById(addItemModalId).isDisplayed()).isTrue();
+    }
+
+    @Test
+    @DisplayName("Should not create an item with empty fields")
+    void ShouldNotCreateItemWithEmptyFields(){
+        testHelper.clickButtonById(addItemButtonId);
+        testHelper.clickButtonByClassName(createItemButtonClassName);
+        assertThat(testHelper.getWebElementByClass("chakra-form__error-message").isDisplayed()).isTrue();
     }
 }
