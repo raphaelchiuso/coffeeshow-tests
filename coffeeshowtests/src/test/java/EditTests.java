@@ -2,12 +2,15 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EditTests {
     private final String editItemButtonId = "update";
     private final String editItemModalId = "chakra-modal-:R1qpf6:";
+    private final String editItemMenuModalClassName = "chakra-modal__content";
     private final TestHelper testHelper = new TestHelper();
 
     @BeforeEach
@@ -25,5 +28,15 @@ public class EditTests {
     void shouldOpenEditItemsModal(){
         testHelper.clickButtonById(editItemButtonId);
         assertThat(testHelper.getWebElementById(editItemModalId).isDisplayed()).isTrue();
+    }
+
+    @Test
+    @DisplayName("Should open edit menu on item click.")
+    void shouldOpenEditMenuOnProductEditItemClick(){
+        testHelper.clickButtonById(editItemButtonId);
+        testHelper.waitMilliseconds(1000);
+        testHelper.clickButtonByClassName("css-szjio1");
+        testHelper.waitMilliseconds(1000);
+        assertThat(testHelper.getWebElementByClass(editItemMenuModalClassName).isDisplayed()).isTrue();
     }
 }
