@@ -19,4 +19,11 @@ public class EditTests {
     public void tearDown() {
         testHelper.tearDown();
     }
+
+    @Test
+    @DisplayName("Should open edit items modal.")
+    void shouldOpenEditItemsModal(){
+        testHelper.clickButtonById(editItemButtonId);
+        assertThat(testHelper.getWebElementById(editItemModalId).isDisplayed()).isTrue();
+    }
 }
