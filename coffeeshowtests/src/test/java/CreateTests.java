@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateTests {
     private final String addItemButtonId = "create";
-    private final String addItemModalId = "chakra-modal-:R7b5sm:";
+    private final String addItemModalId = "chakra-modal-:R1qpf6:";
     private final TestHelper testHelper = new TestHelper();
 
     @BeforeEach

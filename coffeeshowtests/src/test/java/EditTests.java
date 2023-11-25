@@ -1,12 +1,13 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class EditTests {
     private final String editItemButtonId = "update";
+    private final String editItemModalId = "chakra-modal-:R1qpf6:";
     private final TestHelper testHelper = new TestHelper();
 
     @BeforeEach
