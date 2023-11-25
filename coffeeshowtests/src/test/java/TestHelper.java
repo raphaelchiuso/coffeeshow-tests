@@ -14,7 +14,7 @@ public class TestHelper {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:3000");
+        driver.get("https://coffee-show.vercel.app/");
     }
 
     public void tearDown() {
