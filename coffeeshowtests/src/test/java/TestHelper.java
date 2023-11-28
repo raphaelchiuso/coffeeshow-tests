@@ -48,8 +48,8 @@ public class TestHelper {
         return driver.findElement(By.className(className));
     }
 
-    public void clickWebElementByInnerText(String innerText){
-        var webElement = driver.findElement(By.xpath("//p[text()='"+innerText+"']"));
+    public void clickWebElementByInnerText(String tag, String innerText){
+        var webElement = driver.findElement(By.xpath("//"+ tag+ "[text()='"+innerText+"']"));
         webElement.click();
     }
 
