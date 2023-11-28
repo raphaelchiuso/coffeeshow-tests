@@ -40,4 +40,21 @@ public class DeleteTests {
         testHelper.waitMilliseconds(1000);
         assertThat(testHelper.getWebElementByClass(deleteItemConfirmationModalClassName).isDisplayed()).isTrue();
     }
+
+    @Test
+    @DisplayName("Should delete item.")
+    void shouldDeleteItem(){
+        testHelper.waitMilliseconds(1000);
+        testHelper.clickButtonById(deleteItemButtonId);
+        testHelper.waitMilliseconds(1000);
+        var tableSizeBeforeDeletion = testHelper.getTableRowsSizeByClassName("chakra-table");
+        testHelper.waitMilliseconds(1000);
+        testHelper.clickButtonByClassName("css-1mj7xoy");
+        testHelper.waitMilliseconds(1000);
+        testHelper.clickWebElementByInnerText("button", "Excluir");
+        testHelper.waitMilliseconds(1000);
+        var tableSizeAfterDeletion = testHelper.getTableRowsSizeByClassName("chakra-table");
+        testHelper.waitMilliseconds(1000);
+        assertThat(tableSizeAfterDeletion == tableSizeBeforeDeletion - 1).isTrue();
+    }
 }
