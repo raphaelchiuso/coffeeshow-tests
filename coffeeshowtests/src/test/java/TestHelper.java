@@ -85,4 +85,10 @@ public class TestHelper {
     public WebElement getWebElementByInnerText(String tag, String content){
         return driver.findElement(By.xpath("//"+tag+"[text()='"+content+"']"));
     }
+
+    public int getTableRowsSizeByClassName(String className){
+        WebElement tabela = driver.findElement(By.className(className));
+        List<WebElement> linhas = tabela.findElements(By.tagName("tr"));
+        return linhas.size();
+    }
 }
